@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">PitHubProject</string>
+    <string name="hlogin_username">Usuario</string>
+    <string name="hlogin_password">Clave</string>
+    <string name="blogin_ingresar">Ingresar</string>
+    <string name="tlogin_nuevouser">Nuevo usuario?</string>
+    <string name="tlogin_registrate">Regístrate</string>
+</resources>
