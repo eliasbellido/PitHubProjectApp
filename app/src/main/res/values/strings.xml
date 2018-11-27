@@ -1,8 +1,48 @@
 <resources>
     <string name="app_name">PitHubProject</string>
+
+    <!-- login -->
     <string name="hlogin_username">Usuario</string>
     <string name="hlogin_password">Clave</string>
     <string name="blogin_ingresar">Ingresar</string>
     <string name="tlogin_nuevouser">Nuevo usuario?</string>
     <string name="tlogin_registrate">Regístrate</string>
+
+    <!-- login default user&pass for debugging -->
+    <string name="user4defaulttesting">cliente@gmail.com</string>
+    <string name="clave4defaulttesting">123</string>
+
+
+    <string name="msgBienvenida">Ingresaste</string>
+
+    <!-- WS msgs -->
+    <string name="onfailureService">Hubo un error al conectar con el servicio, verifique su estado de internet</string>
+    <string name="credentialsFailedMsg">Usuario o clave incorrecto</string>
+    <string name="serviceFailure">Hubo un error al conectarse con el servicio, vuelva a intentar en un momento</string>
+
+    <!-- NavigationDrawer -->
+    <string name="title_activity_main">MainActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">PitHub Project</string>
+    <string name="nav_header_subtitle">ebellido6@gmail.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="userLogged">ya hay un usuario logueado</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="placeholderFortxtRestaurantCategory">Categoría</string>
+    <string name="nombreRestaurant">Nombre del restaurante</string>
+    <string name="distrito">Distrito</string>
+    <string name="ratingDefault">4.5</string>
+    <string name="cantRestauranteDefault">3 restaurantes</string>
+    <string name="categoriaComida">Categoría de la comida</string>
+    <string name="platoComida">Plato de comida</string>
+    <string name="descripcionLongText">Esta es la descripciom que para mostrar 3 puntos</string>
+    <string name="precio">14.90</string>
+    <string name="cantidad">0</string>
+    <string name="moneda">S/</string>
+    <string name="entregaDeliveryEn">Felicidades, recibirás tu delivery muy pronto en:</string>
+    <string name="errorDireccionEntrega">Debe ingresar dirección de entrega</string>
 </resources>

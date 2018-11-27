@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.beyondthecode.pithubproject">
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".PitHubApp"
         android:allowBackup="true"
@@ -19,6 +22,25 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".presentation.TestActivity"
+            android:parentActivityName=".presentation.MainActivity" />
+        <activity
+            android:name=".presentation.MainActivity"
+            android:label="@string/title_activity_main"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".presentation.RestaurantesXcategoriaActivity"
+            android:parentActivityName=".presentation.MainActivity" />
+        <activity
+            android:name=".presentation.DetalleRestauranteActivity"
+            android:parentActivityName=".presentation.RestaurantesXcategoriaActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".presentation.DetalleConsumoActivity"
+            android:parentActivityName=".presentation.DetalleRestauranteActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            />
     </application>
 
 </manifest>

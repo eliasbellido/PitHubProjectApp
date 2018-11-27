@@ -39,6 +39,11 @@ ext {
     retrofitVersion = '2.4.0'
     okhttpVersion = '3.11.0'
     multidexVersion = '1.0.3'
-
+    loggingintercVersion = '3.9.1'
+    timberVersion = '4.7.1'
+    picassoVersion = '2.71828'
+    roomVersion = '2.1.0-alpha02'
+    expRecyclerVersion = '1.3'
+    textDrawableVersion = '1.0.1'
 
 }

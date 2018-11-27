@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+
+    <ImageView
+        android:id="@+id/imgPlato"
+        android:layout_width="74dp"
+        android:layout_height="72dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        tools:srcCompat="@tools:sample/avatars[14]" />
+
+    <TextView
+        android:id="@+id/txtPlatoComida"
+        android:layout_width="wrap_content"
+        android:layout_height="19dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="4dp"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:text="@string/platoComida"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/imgPlato"
+        app:layout_constraintTop_toTopOf="@+id/imgPlato" />
+
+    <TextView
+        android:id="@+id/txtDescripcionPlato"
+        android:layout_width="130dp"
+        android:layout_height="match_parent"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="8dp"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:text="@string/descripcionLongText"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imgPlato"
+        app:layout_constraintEnd_toEndOf="@+id/txtPlatoComida"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/txtPlatoComida"
+        app:layout_constraintTop_toBottomOf="@+id/txtPlatoComida" />
+
+    <TextView
+        android:id="@+id/txtPrecioPlato"
+        android:textStyle="bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="@string/precio"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/txtPlatoComida" />
+
+    <ImageView
+        android:id="@+id/imgSumarCant"
+        android:layout_width="34dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintEnd_toEndOf="@+id/txtPrecioPlato"
+        app:layout_constraintTop_toBottomOf="@+id/txtPrecioPlato"
+        app:srcCompat="@drawable/ic_add_box_24dp" />
+
+    <TextView
+        android:id="@+id/txtContador"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="5dp"
+        android:text="@string/cantidad"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imgSumarCant"
+        app:layout_constraintEnd_toStartOf="@+id/imgSumarCant"
+        app:layout_constraintTop_toTopOf="@+id/imgSumarCant" />
+
+    <ImageView
+        android:id="@+id/imgRestarCant"
+        android:layout_width="34dp"
+        android:layout_height="34dp"
+        android:layout_marginEnd="5dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imgSumarCant"
+        app:layout_constraintEnd_toStartOf="@+id/txtContador"
+        app:layout_constraintTop_toTopOf="@+id/imgSumarCant"
+        app:srcCompat="@drawable/ic_indeterminate_check_box_24dp" />
+
+    <TextView
+        android:id="@+id/txtMoneda"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="2dp"
+        android:text="@string/moneda"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/txtPrecioPlato"
+        app:layout_constraintEnd_toStartOf="@+id/txtPrecioPlato"
+        app:layout_constraintTop_toTopOf="@+id/txtPrecioPlato"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/txtIdPlatoComida"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        android:visibility="gone"
+        android:text="id"
+        app:layout_constraintStart_toEndOf="@+id/txtPlatoComida"
+        app:layout_constraintTop_toTopOf="@+id/txtPlatoComida" />
+
+
+</android.support.constraint.ConstraintLayout>
