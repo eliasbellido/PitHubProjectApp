@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    tools:context="com.beyondthecode.pithubproject.presentation.SignUpActivity">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/logo_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_logopithubx" />
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/textInputLayoutEmail"
+        android:layout_width="290dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        app:errorEnabled="true"
+        android:textColorHint="@color/colorPrimaryDark"
+        app:hintTextAppearance="@style/text_in_layout_hint_Style"
+        app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/imageView">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/edtsignup_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:hint="@string/hlogin_username"
+            android:singleLine="true"
+            android:textColor="@color/colorText"
+            android:textSize="18sp" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/textInputLayoutClave"
+        android:layout_width="290dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:passwordToggleEnabled="true"
+        app:errorEnabled="true"
+        android:textColorHint="@color/colorPrimaryDark"
+        app:hintTextAppearance="@style/text_in_layout_hint_Style"
+        app:layout_constraintEnd_toEndOf="@+id/textInputLayoutEmail"
+        app:layout_constraintStart_toStartOf="@+id/textInputLayoutEmail"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutEmail">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/edtsignup_pass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:hint="@string/hlogin_password"
+            android:inputType="textPassword"
+            android:singleLine="true"
+            android:textColor="@color/colorText"
+            android:textSize="18sp" />
+    </android.support.design.widget.TextInputLayout>
+
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/textInputLayoutConfirmarClave"
+        android:layout_width="290dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:passwordToggleEnabled="true"
+        android:textColorHint="@color/colorPrimaryDark"
+        app:hintTextAppearance="@style/text_in_layout_hint_Style"
+        app:layout_constraintEnd_toEndOf="@+id/textInputLayoutClave"
+        app:layout_constraintStart_toStartOf="@+id/textInputLayoutClave"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutClave">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/edtsignup_confirmpass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:hint="@string/hsignup_confirmpass"
+            android:inputType="textPassword"
+            android:singleLine="true"
+            android:textColor="@color/colorText"
+            android:textSize="18sp" />
+    </android.support.design.widget.TextInputLayout>
+
+    <Button
+        android:id="@+id/btnSignUp"
+        android:background="@drawable/button_oval_style_bk"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:textColor="@color/colorPrimary"
+        android:text="@string/bsignup"
+        app:layout_constraintEnd_toEndOf="@+id/textInputLayoutConfirmarClave"
+        app:layout_constraintStart_toStartOf="@+id/textInputLayoutConfirmarClave"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutConfirmarClave" />
+
+    <ProgressBar
+        android:id="@+id/pgbSignUp"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/btnSignUp"
+        app:layout_constraintEnd_toEndOf="@+id/btnSignUp"
+        app:layout_constraintStart_toStartOf="@+id/btnSignUp"
+        app:layout_constraintTop_toTopOf="@+id/btnSignUp" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="28dp"
+        android:text="@string/talreadyuser"
+        android:textColor="@color/colorText"
+        app:layout_constraintStart_toStartOf="@+id/btnSignUp"
+        app:layout_constraintTop_toBottomOf="@+id/btnSignUp" />
+
+    <TextView
+        android:id="@+id/txtIngresar"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:text="@string/tsignup_ingresar"
+        android:textColor="@color/colorObjectBG"
+        app:layout_constraintStart_toEndOf="@+id/textView2"
+        app:layout_constraintTop_toTopOf="@+id/textView2" />
+
+
+
+
+</android.support.constraint.ConstraintLayout>

@@ -2,7 +2,7 @@
     <string name="app_name">PitHubProject</string>
 
     <!-- login -->
-    <string name="hlogin_username">Usuario</string>
+    <string name="hlogin_username">Email</string>
     <string name="hlogin_password">Clave</string>
     <string name="blogin_ingresar">Ingresar</string>
     <string name="tlogin_nuevouser">Nuevo usuario?</string>
@@ -18,6 +18,7 @@
     <!-- WS msgs -->
     <string name="onfailureService">Hubo un error al conectar con el servicio, verifique su estado de internet</string>
     <string name="credentialsFailedMsg">Usuario o clave incorrecto</string>
+    <string name="onSignUpError">Hubo un error al tratar de registrarse, vuelva a intentar en un momento.</string>
     <string name="serviceFailure">Hubo un error al conectarse con el servicio, vuelva a intentar en un momento</string>
 
     <!-- NavigationDrawer -->
@@ -45,4 +46,12 @@
     <string name="moneda">S/</string>
     <string name="entregaDeliveryEn">Felicidades, recibirás tu delivery muy pronto en:</string>
     <string name="errorDireccionEntrega">Debe ingresar dirección de entrega</string>
+    <string name="hsignup_confirmpass">Confirmar clave</string>
+    <string name="bsignup">Crear cuenta</string>
+    <string name="talreadyuser">Ya tienes una cuenta?</string>
+    <string name="tsignup_ingresar">Ingresa</string>
+    <string name="msgerror_ingresarEmail">Ingrese su email</string>
+    <string name="msgerror_ingresarClave">Ingrese su clave</string>
+    <string name="msgerror_ingresarConfirmarClave">Ingrese otra vez su clave</string>
+    <string name="msgerror_clavesNoCoinciden">Las claves no coinciden</string>
 </resources>

@@ -185,7 +185,7 @@ public class DetalleRestauranteActivity extends AppCompatActivity {
                             if(lstCat.get(i).getNomCat().equals(lstProd.get(j).getNomCat())){
                                 Log.d(TAG,"product"+j+" "+lstProd.get(j).getNomCat() + "/ categoria"+i+" "+ lstCat.get(i).getNomCat());
 
-                                comida.add(new Producto(lstProd.get(i).getIdProd(),lstProd.get(j).getNomProd(),lstProd.get(j).getImgProd(),lstProd.get(j).getPreProd(),lstProd.get(j).getCaloriaProd()));
+                                comida.add(new Producto(lstProd.get(j).getIdProd(),lstProd.get(j).getNomProd(),lstProd.get(j).getImgProd(),lstProd.get(j).getPreProd(),lstProd.get(j).getCaloriaProd()));
 
                             }
                         }

@@ -36,4 +36,7 @@ public interface IApiClient {
     @POST("pedido/generarPedido")
     Call<PedidoResponse> generarPedido(@Body PedidoRequest pedido);
 
+    @POST("usuario/registrarUsuarioFinal")
+    Call<LoginResponse> registrarusuario(@Body LoginRequest usuario);
+
 }

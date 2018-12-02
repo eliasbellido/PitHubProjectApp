@@ -23,7 +23,8 @@
         android:id="@+id/textInputLayout"
         android:layout_width="290dp"
         android:layout_height="51dp"
-
+        android:textColorHint="@color/colorPrimaryDark"
+        app:hintTextAppearance="@style/text_in_layout_hint_Style"
         android:layout_marginStart="8dp"
         android:layout_marginTop="50dp"
         android:layout_marginEnd="8dp"
@@ -35,6 +36,7 @@
             android:id="@+id/edtUser"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+
             android:hint="@string/hlogin_username"
             android:singleLine="true"
             android:textColor="@color/colorText"
@@ -46,6 +48,9 @@
         android:layout_width="290dp"
         android:layout_height="51dp"
         android:layout_marginTop="8dp"
+        app:passwordToggleEnabled="true"
+        android:textColorHint="@color/colorPrimaryDark"
+        app:hintTextAppearance="@style/text_in_layout_hint_Style"
         app:layout_constraintEnd_toEndOf="@+id/textInputLayout"
         app:layout_constraintStart_toStartOf="@+id/textInputLayout"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout">
@@ -54,6 +59,7 @@
             android:id="@+id/edtClave"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+
             android:hint="@string/hlogin_password"
             android:inputType="textPassword"
             android:singleLine="true"

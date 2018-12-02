@@ -101,6 +101,7 @@ public class RestaurantesXcategoriaActivity extends AppCompatActivity {
 
 
         RestauranteAdapter mAdapter = new RestauranteAdapter(this,lstRest);
+        mAdapter.notifyDataSetChanged();
 
 
         Log.d("list","tamaño de la lista para cargar" + mAdapter.getItemCount());

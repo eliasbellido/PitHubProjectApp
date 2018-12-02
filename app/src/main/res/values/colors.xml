@@ -7,6 +7,8 @@
     <color name="colorAccent">#6e5052</color>
 
     <color name="colorObjectBG">#B6D892</color>
+    <color name="colorObjectUnFocus">#405526</color>
+    85a664
 
     <color name="colorHintText">#4b3c54</color>
 

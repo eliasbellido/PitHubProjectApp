@@ -37,4 +37,10 @@
 
     </style>
 
+    <style name="text_in_layout_hint_Style">
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+
 </resources>

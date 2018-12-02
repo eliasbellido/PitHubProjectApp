@@ -183,5 +183,7 @@ public class SqlHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = getWritableDatabase();
         db.delete(tablaDetalleOrden,null,null);
 
+        db.close();
+
     }
 }

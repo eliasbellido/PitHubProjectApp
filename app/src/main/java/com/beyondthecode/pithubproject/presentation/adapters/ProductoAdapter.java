@@ -56,7 +56,7 @@ public class ProductoAdapter extends ExpandableRecyclerViewAdapter<CategoriaPlat
 
 
                 if(contador > 0){
-                    //Toast.makeText(view.getContext(), "se agregó al carrito" +position, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(view.getContext(), "se agregó al carrito" +position, Toast.LENGTH_SHORT).show();
 
                     new SqlHelper(view.getContext()).agregarAlcarro(
                             new PedidoDetalle(

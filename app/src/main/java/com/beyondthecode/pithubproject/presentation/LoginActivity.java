@@ -153,6 +153,10 @@ public class LoginActivity extends AppCompatActivity {
     public void registrar(){
         SharedPreferences sp = mContext.getSharedPreferences(PitHubApp.PREF_FILE,Context.MODE_PRIVATE);
         String email = sp.getString(PitHubApp.PREF_CLI_EMAIL,"");
+        Intent signupActivity = new Intent(this, SignUpActivity.class);
+        startActivity(signupActivity);
+
+        overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
         Toast.makeText(mActivity, "tocaste en registrar "+email, Toast.LENGTH_SHORT).show();
     }
 
