@@ -29,11 +29,12 @@ public class PreferenceManager {
         prefs = context.getSharedPreferences(PitHubApp.PREF_FILE, Context.MODE_PRIVATE);
     }
 
-    public void setUser(Cliente cliente){
+    public void setUser(Cliente cliente, String token){
         SharedPreferences.Editor editor = prefs.edit();
         editor.putBoolean(PitHubApp.PREF_LOGGED,true);
         editor.putString(PitHubApp.PREF_CLI_EMAIL,cliente.getEmailcli());
         editor.putString(PitHubApp.PREF_CLI_ID,cliente.getIdcli());
+        editor.putString(PitHubApp.PREF_TOKEN, token);
         editor.apply();
     }
 
@@ -46,6 +47,7 @@ public class PreferenceManager {
         editor.putBoolean(PitHubApp.PREF_LOGGED,false);
         editor.putString(PitHubApp.PREF_CLI_EMAIL,"");
         editor.putString(PitHubApp.PREF_CLI_ID,"");
+        editor.putString(PitHubApp.PREF_TOKEN,"");
         editor.apply();
     }
 

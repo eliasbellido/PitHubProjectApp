@@ -2,6 +2,7 @@ package com.beyondthecode.pithubproject.domain;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.util.Log;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -170,9 +171,11 @@ public class Producto implements Parcelable {
 
     @Override
     public boolean equals(Object o) {
+        Log.d("Producto", "llamando a equals()");
         if (this == o) return true;
         if (!(o instanceof Producto)) return false;
         Producto producto = (Producto) o;
+
         return Objects.equals(nomCat, producto.nomCat);
     }
 
@@ -181,4 +184,5 @@ public class Producto implements Parcelable {
 
         return Objects.hash(nomCat);
     }
+
 }

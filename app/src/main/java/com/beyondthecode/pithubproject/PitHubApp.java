@@ -7,10 +7,12 @@ import android.support.multidex.MultiDex;
 
 import com.beyondthecode.pithubproject.data.datasource.PreferenceManager;
 import com.beyondthecode.pithubproject.data.datasource.local.SqlHelper;
+import com.beyondthecode.pithubproject.di.PitHubAppComponent;
 import com.beyondthecode.pithubproject.domain.PedidoDetalle;
-import com.beyondthecode.pithubproject.presentation.DetalleRestauranteActivity;
 
 import java.util.List;
+
+
 
 
 public class PitHubApp extends Application {
@@ -24,11 +26,17 @@ public class PitHubApp extends Application {
         return singleton;
     }
 
+    private static PitHubAppComponent pitHubAppComponent;
+
+
     @Override
     public void onCreate() {
         super.onCreate();
 
         singleton = this;
+        initPitHubComponent();
+
+
 
         PreferenceManager.init(getApplicationContext());
         PREF_PITHUB_APP = getSharedPreferences(PREF_FILE, Context.MODE_PRIVATE);
@@ -46,6 +54,14 @@ public class PitHubApp extends Application {
         MultiDex.install(this);
     }
 
+    public static PitHubAppComponent getPitHubAppComponent() {
+        return pitHubAppComponent;
+    }
+
+    private void initPitHubComponent(){
+
+
+    }
     /*
     * VARIABLES PREFERENCIAS*/
 
@@ -53,6 +69,7 @@ public class PitHubApp extends Application {
     public static final String PREF_LOGGED = "PREF_LOGGED";
     public static final String PREF_CLI_EMAIL = "PREF_CLI_EMAIL";
     public static final String PREF_CLI_ID = "PREF_CLI_ID";
+    public static final String PREF_TOKEN = "PREF_TOKEN";
 
 
 

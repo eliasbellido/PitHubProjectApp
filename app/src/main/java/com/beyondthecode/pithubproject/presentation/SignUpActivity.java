@@ -191,7 +191,7 @@ public class SignUpActivity extends AppCompatActivity {
                         cliente.setIdcli(response.body().getData().getIdcli());
                         cliente.setEmailcli(edtEmail.getText().toString());
 
-                        PreferenceManager.getInstancia().setUser(cliente);
+                        PreferenceManager.getInstancia().setUser(cliente,"");
 
 
 

@@ -1,5 +1,7 @@
 package com.beyondthecode.pithubproject.presentation;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,6 +11,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.beyondthecode.pithubproject.PitHubApp;
 import com.beyondthecode.pithubproject.R;
 import com.beyondthecode.pithubproject.data.WSData;
 import com.beyondthecode.pithubproject.data.datasource.response.RestaurantesResponse;
@@ -59,8 +62,10 @@ public class RestaurantesXcategoriaActivity extends AppCompatActivity {
     }
 
     private void obtenerRestaurantes(int idcategoria){
+        SharedPreferences sp = this.getSharedPreferences(PitHubApp.PREF_FILE,Context.MODE_PRIVATE);
+        String token = sp.getString(PitHubApp.PREF_TOKEN,"null");
         IApiClient mApiService = WSData.getInterfaceService();
-        Call<RestaurantesResponse> mService = mApiService.obtenerRestaurantesxCategoria(idcategoria);
+        Call<RestaurantesResponse> mService = mApiService.obtenerRestaurantesxCategoria(token, idcategoria);
         mService.enqueue(new Callback<RestaurantesResponse>() {
             @Override
             public void onResponse(Call<RestaurantesResponse> call, Response<RestaurantesResponse> response) {

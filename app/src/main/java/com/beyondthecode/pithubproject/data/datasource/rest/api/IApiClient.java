@@ -12,6 +12,7 @@ import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 
+import retrofit2.http.Header;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
 
@@ -24,17 +25,17 @@ public interface IApiClient {
 
     //listar tipo restaurantes service
     @GET("restaurantes/categorias")
-    Call<TipoRestaurantesResponse> obtenerCategoriasRestaurantes();
+    Call<TipoRestaurantesResponse> obtenerCategoriasRestaurantes(@Header("x-access-token") String token);
 
     @GET("restaurantes/categoria/{id}")
-    Call<RestaurantesResponse> obtenerRestaurantesxCategoria(@Path("id") int idcategoriarest);
+    Call<RestaurantesResponse> obtenerRestaurantesxCategoria(@Header("x-access-token") String token, @Path("id") int idcategoriarest);
 
     //obtener productos segun restaurante
     @GET("productos/{id}")
-    Call<ProductosResponse> obtenerProductosxRestaurante(@Path("id") int idrest);
+    Call<ProductosResponse> obtenerProductosxRestaurante(@Header("x-access-token") String token, @Path("id") int idrest);
 
     @POST("pedido/generarPedido")
-    Call<PedidoResponse> generarPedido(@Body PedidoRequest pedido);
+    Call<PedidoResponse> generarPedido(@Header("x-access-token") String token, @Body PedidoRequest pedido);
 
     @POST("usuario/registrarUsuarioFinal")
     Call<LoginResponse> registrarusuario(@Body LoginRequest usuario);

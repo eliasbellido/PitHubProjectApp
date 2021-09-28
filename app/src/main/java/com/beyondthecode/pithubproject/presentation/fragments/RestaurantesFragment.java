@@ -1,5 +1,7 @@
 package com.beyondthecode.pithubproject.presentation.fragments;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -12,11 +14,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.beyondthecode.pithubproject.PitHubApp;
 import com.beyondthecode.pithubproject.R;
 import com.beyondthecode.pithubproject.data.WSData;
 import com.beyondthecode.pithubproject.data.datasource.response.TipoRestaurantesResponse;
 import com.beyondthecode.pithubproject.data.datasource.rest.api.IApiClient;
 import com.beyondthecode.pithubproject.domain.TipoRestaurante;
+import com.beyondthecode.pithubproject.presentation.DetalleConsumoActivity;
 import com.beyondthecode.pithubproject.presentation.adapters.CategoriaRestauranteAdapter;
 
 import java.util.List;
@@ -96,8 +100,12 @@ public class RestaurantesFragment extends Fragment {
     }
 
     private void obtenerTipoRestaurantes(){
+        SharedPreferences sp = getContext().getSharedPreferences(PitHubApp.PREF_FILE,Context.MODE_PRIVATE);
+        String token = sp.getString(PitHubApp.PREF_TOKEN,"null");
         IApiClient mApiService = WSData.getInterfaceService();
-        Call<TipoRestaurantesResponse> mService = mApiService.obtenerCategoriasRestaurantes();
+
+
+        Call<TipoRestaurantesResponse> mService = mApiService.obtenerCategoriasRestaurantes(token);
         mService.enqueue(new Callback<TipoRestaurantesResponse>() {
             @Override
             public void onResponse(Call<TipoRestaurantesResponse> call, Response<TipoRestaurantesResponse> response) {

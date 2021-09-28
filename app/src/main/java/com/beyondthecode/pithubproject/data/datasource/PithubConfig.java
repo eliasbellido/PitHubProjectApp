@@ -11,12 +11,20 @@ public class PithubConfig {
     private Context context;
 
     //Beta pathservice
-    //private static String pathBase = "http://localhost:8081";
-    private static String pathBase = "http://localhost:8080";
-    private static String pathBaseImageWebClient = "http://localhost:8093/pitrestaurant/";
+    //private static String pathBase = "http://localhost:5081";
+    //private static String pathBase = "http://localhost:8080";
 
-    //private static String pathAPI =  pathBase + "/api/rest/";
-    private static String pathAPI =  pathBase + "/finalSemana13ServiciosWeb2_/rest/";
+    //Production pathservice
+    private static String pathBase = "https://pithub-service.herokuapp.com";
+
+    //path for images - local
+    //private static String pathBaseImageWebClient = "http://localhost:8093/pitrestaurant/";
+
+    //path for images - aws s3
+    private static String pathBaseImageWebClient = "https://s3.us-east-2.amazonaws.com/pithubpublic-service/";
+
+    private static String pathAPI =  pathBase + "/api/rest/";
+    //private static String pathAPI =  pathBase + "/finalSemana13ServiciosWeb2_/rest/";
 
 
     public static PithubConfig getInstancia(Context context){
@@ -83,4 +91,5 @@ public class PithubConfig {
         return state_Network;
 
     }
+
 }

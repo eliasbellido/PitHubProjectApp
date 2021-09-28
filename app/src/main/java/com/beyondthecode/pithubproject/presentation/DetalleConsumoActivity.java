@@ -181,7 +181,7 @@ public class DetalleConsumoActivity extends AppCompatActivity {
 
         SharedPreferences sp = DetalleConsumoActivity.this.getSharedPreferences(PitHubApp.PREF_FILE,Context.MODE_PRIVATE);
         int idUsuario = Integer.parseInt(sp.getString(PitHubApp.PREF_CLI_ID,"-1"));
-
+        String token = sp.getString(PitHubApp.PREF_TOKEN,"null");
         //Toast.makeText(DetalleConsumoActivity.this, "valores:"+idUsuario+"/"+idRest+"/"+total+"/"+direccionEntrega, Toast.LENGTH_SHORT).show();
 
         List<PedidoDetalle> pedidoDetalle = new SqlHelper(DetalleConsumoActivity.this).obtenerOrden();
@@ -190,7 +190,7 @@ public class DetalleConsumoActivity extends AppCompatActivity {
 
 
         IApiClient mApiService = WSData.getInterfaceService();
-        Call<PedidoResponse> mService = mApiService.generarPedido(pedidoRequest);
+        Call<PedidoResponse> mService = mApiService.generarPedido(token,pedidoRequest);
         mService.enqueue(new Callback<PedidoResponse>() {
             @Override
             public void onResponse(Call<PedidoResponse> call, Response<PedidoResponse> response) {

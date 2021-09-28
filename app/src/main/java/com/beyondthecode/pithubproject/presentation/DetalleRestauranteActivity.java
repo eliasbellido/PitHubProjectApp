@@ -1,7 +1,9 @@
 package com.beyondthecode.pithubproject.presentation;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -15,6 +17,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.beyondthecode.pithubproject.PitHubApp;
 import com.beyondthecode.pithubproject.R;
 import com.beyondthecode.pithubproject.data.WSData;
 import com.beyondthecode.pithubproject.data.datasource.PithubConfig;
@@ -28,7 +31,9 @@ import com.beyondthecode.pithubproject.presentation.adapters.ProductoAdapter;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -144,8 +149,10 @@ public class DetalleRestauranteActivity extends AppCompatActivity {
 
 
     private void fetchProductos(){
+        SharedPreferences sp = this.getSharedPreferences(PitHubApp.PREF_FILE,Context.MODE_PRIVATE);
+        String token = sp.getString(PitHubApp.PREF_TOKEN,"null");
         IApiClient mApiService = WSData.getInterfaceService();
-        Call<ProductosResponse> mService = mApiService.obtenerProductosxRestaurante(idRest);
+        Call<ProductosResponse> mService = mApiService.obtenerProductosxRestaurante(token,idRest);
         mService.enqueue(new Callback<ProductosResponse>() {
             @Override
             public void onResponse(Call<ProductosResponse> call, Response<ProductosResponse> response) {
@@ -156,24 +163,44 @@ public class DetalleRestauranteActivity extends AppCompatActivity {
                     lstProd = tipoRestResponse.getData();
                     lstCat = new ArrayList<>();
 
+                    Map<String, ArrayList<Producto>> productMap = new HashMap<>();
 
+
+                    for( Producto prod : lstProd){
+                        productMap.put(prod.getNomCat(), ());
+                    }
 
                     for(int i=0; i<lstProd.size();i++){
 
+
+                        productMap.put( lstProd.get(i).getNomCat(),
+                               lstProd.get(i));
+
+
+
+
+                        /*
                         //agregar solo 1 vez las categorias si existiera duplicados
-                        if( !lstCat.containsAll(lstProd) ){
+                        if( !lstCat.contains(lstProd) ){
+                            Log.d(TAG, "cat added: " + lstProd.get(i).getNomCat());
                             lstCat.add(new Producto(lstProd.get(i).getNomCat()));
-                        }
+                        }*/
 
                     }
 
+                    Log.d(TAG, "mapList count:" + productMap.size());
+
+                    /*
                     ArrayList<CategoriaPlato> catplato = new ArrayList<>();
 
                     ArrayList<Producto> comida; //= new ArrayList<>();
 
                     CategoriaPlato cp;
 
-                    Log.d(TAG,"tamaño de la lista:"+lstProd.size());
+                    Log.d(TAG,"tamaño de la lista de categorias sin repetir:"+lstCat.size());
+                    Log.d(TAG,"tamaño de la lista:"+lstProd.size());*/
+
+                    /*
 
                     for(int i=0; i<lstCat.size();i++){
 
@@ -198,7 +225,11 @@ public class DetalleRestauranteActivity extends AppCompatActivity {
                         catplato.add(cp);
 
 
-                    }
+                    }*/
+                    ArrayList<CategoriaPlato> catplato = new ArrayList<>();
+
+                    for(Map.Entry<String, ArrayList<Pro>>)
+
 
                     layoutManager = new LinearLayoutManager(DetalleRestauranteActivity.this);
                     rcvMenu.setLayoutManager(layoutManager);

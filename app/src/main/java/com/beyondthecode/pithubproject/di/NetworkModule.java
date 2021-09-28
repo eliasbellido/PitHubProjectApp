@@ -1,34 +1,40 @@
-package com.beyondthecode.pithubproject.data;
-
+package com.beyondthecode.pithubproject.di;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Handler;
-import android.os.Looper;
-import android.widget.Toast;
+
 import com.beyondthecode.pithubproject.PitHubApp;
 import com.beyondthecode.pithubproject.data.datasource.PithubConfig;
-import com.beyondthecode.pithubproject.data.datasource.PreferenceManager;
 import com.beyondthecode.pithubproject.data.datasource.rest.api.IApiClient;
 import com.beyondthecode.pithubproject.presentation.LoginActivity;
+import com.beyondthecode.pithubproject.util.rx.PitHubAppRxSchedulers;
 
+import java.io.File;
 import java.io.IOException;
 
+import javax.inject.Singleton;
+
+import dagger.Module;
+import dagger.Provides;
+import okhttp3.Cache;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class WSData {
+@Module
+public class NetworkModule {
 
-    private static OkHttpClient getOkHttpClient(){
+
+    @Provides
+    @Singleton
+    public static OkHttpClient provideOkHttpClient(){
         HttpLoggingInterceptor logger = new HttpLoggingInterceptor();
         logger.setLevel(HttpLoggingInterceptor.Level.BODY);
-        logger.redactHeader("x-access-token");
-
 
         return new OkHttpClient.Builder()
                 .addInterceptor(logger)
@@ -36,31 +42,38 @@ public class WSData {
                 .build();
     }
 
+
+    @Provides
+    @Singleton
+    Cache provideCache(File file){
+        return new Cache(file,10*10*1000);
+    }
+
+
+    @Provides
+    @Singleton
+    File provideCacheFile(Context context){
+        return context.getFilesDir();
+    }
+
+
+    @Provides
+    @Singleton
+    RxJava2CallAdapterFactory provideRxAdapter(){
+        return RxJava2CallAdapterFactory.createWithScheduler(PitHubAppRxSchedulers.INTERNET_SCHEDULERS);
+    }
     //controlar los accesos no permitidos
     private static Interceptor unauthorizedInterceptor = new Interceptor() {
         @Override
         public Response intercept(Chain chain) throws IOException {
             Request request = chain.request();
             Response response = chain.proceed(request);
-            if(response.code() == 403){
+            if(response.code() == 401){
 
-                final Context context = PitHubApp.getInstance().getApplicationContext();
-
-                PreferenceManager.getInstancia().logoutUser();
+                Context context = PitHubApp.getInstance().getApplicationContext();
 
                 Intent login = new Intent(context,LoginActivity.class);
-                login.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 context.startActivity(login);
-
-
-                Runnable runnable = new Runnable() {
-                    @Override
-                    public void run() {
-                        Toast.makeText(context, "No tiene los permisos necesarios para usar nuestra app.", Toast.LENGTH_SHORT).show();
-                    }
-                };
-
-                new Handler(Looper.getMainLooper()).post(runnable);
 
             }
             return response;
@@ -71,7 +84,7 @@ public class WSData {
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(PithubConfig.getPathAPI())
-                .client(getOkHttpClient())
+                .client(provideOkHttpClient())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 

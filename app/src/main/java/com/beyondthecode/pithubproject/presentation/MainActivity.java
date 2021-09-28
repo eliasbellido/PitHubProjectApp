@@ -1,6 +1,8 @@
 package com.beyondthecode.pithubproject.presentation;
 
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -109,7 +111,7 @@ public class MainActivity extends AppCompatActivity
             cerrarSesion();
 
         } else if (id == R.id.nav_otherideas) {
-
+            watchYoutubeVideo("j_npL6Z0sSA");
         }
 
         if(fragment != null){
@@ -126,6 +128,17 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    public void watchYoutubeVideo(String id) {
+        Intent appIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("vnd.youtube:" + id));
+        Intent webIntent = new Intent(Intent.ACTION_VIEW,
+                Uri.parse("http://www.youtube.com/watch?v=" + id));
+        try {
+            startActivity(appIntent);
+        } catch (ActivityNotFoundException ex) {
+            startActivity(webIntent);
+        }
     }
 
     private void cerrarSesion(){

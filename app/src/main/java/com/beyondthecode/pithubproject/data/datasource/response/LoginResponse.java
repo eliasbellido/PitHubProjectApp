@@ -17,6 +17,12 @@ public class LoginResponse {
     @Expose
     private Cliente data;
 
+    @SerializedName("token")
+    @Expose
+    private String token;
+
+
+
     public String getMensaje() {
         return mensaje;
     }
@@ -31,5 +37,13 @@ public class LoginResponse {
 
     public void setData(Cliente data) {
         this.data = data;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
     }
 }

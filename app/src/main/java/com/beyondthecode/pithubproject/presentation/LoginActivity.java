@@ -24,8 +24,7 @@ import com.beyondthecode.pithubproject.data.datasource.response.LoginResponse;
 import com.beyondthecode.pithubproject.data.datasource.rest.api.IApiClient;
 import com.beyondthecode.pithubproject.domain.Cliente;
 
-import java.util.ArrayList;
-import java.util.List;
+
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -113,9 +112,9 @@ public class LoginActivity extends AppCompatActivity {
                     //revisar si los datos son los correctos
                     if(loginResponse.getMensaje().equals("ok")){
                         Cliente cliente = loginResponse.getData();
+                        String token = loginResponse.getToken();
 
-                        PreferenceManager.getInstancia().setUser(cliente);
-
+                        PreferenceManager.getInstancia().setUser(cliente, token);
 
 
                         Intent loginIntent = new Intent(mContext,MainActivity.class);
